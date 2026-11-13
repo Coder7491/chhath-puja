@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>छठ महापर्व | Engineered with Devotion by Farji Engineer</title>
+  <meta name="description"
+    content="छठ महापर्व का पावन डिजिटल घाट: सजीव सूर्य अर्घ्य, दउरा व सूप सामग्री, ठेकुआ कैलकुलेटर और इंटरैक्टिव क्विज - By Farji Engineer">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            saffron: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            },
+            sacred: {
+              gold: '#ffb300',
+              deepRed: '#701119',
+              maroon: '#4a0e17',
+              dark: '#0d0714',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#0d0714] text-slate-100 min-h-screen selection:bg-amber-500 selection:text-stone-950">
+
+  <!-- Background Petals Canvas (Global Floating Genda Phool) -->
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Top Announcement Bar / Marquee by Farji Engineer -->
+  <div
+    class="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-stone-950 font-bold text-xs py-1.5 px-4 shadow-md relative z-30 overflow-hidden">
+    <div class="marquee-container">
+      <div class="marquee-content flex items-center gap-10">
+        <span>✨ ॐ सूर्याय नमः! छठ महापर्व की कोटि-कोटि पावन शुभकामनाएं!</span>
+        <span>🛠️ Engineered with Pure Ghee & Devotion by <span class="underline decoration-stone-950">Farji
+            Engineer</span></span>
+        <span>🪔 Thekua: The only binary payload with 100% purity and 0% bugs!</span>
+        <span>🌊 गंगा तट का पावन संगम: प्रकृति, स्वच्छता और लोक आस्था का सबसे बड़ा पर्व</span>
+        <span>✨ ॐ सूर्याय नमः! छठ महापर्व की कोटि-कोटि पावन शुभकामनाएं!</span>
+        <span>🛠️ Engineered with Pure Ghee & Devotion by <span class="underline decoration-stone-950">Farji
+            Engineer</span></span>
+        <span>🪔 Thekua: The only binary payload with 100% purity and 0% bugs!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <nav
+    class="sticky top-0 z-40 glass-panel border-b border-amber-500/20 px-4 lg:px-8 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Logo & Farji Badge -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-transform">
+          <span class="text-2xl">☀️</span>
+        </div>
+        <div>
+          <div
+            class="font-hindi text-xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 leading-tight">
+            छठ महापर्व
+          </div>
+          <div class="text-[10px] font-code text-amber-300/80 tracking-wide flex items-center gap-1">
+            <span>BY FARJI ENGINEER</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-200">
+        <a href="#virtualGhat" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <span>🌊</span> पावन घाट
+        </a>
+        <a href="#fourDays" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <span>📜</span> 4-दिवसीय अनुष्ठान
+        </a>
+        <a href="#soopSection" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <span>🧺</span> सूप सामग्री
+        </a>
+        <a href="#calculatorSection" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <span>🧮</span> ठेकुआ कैलकुलेटर
+        </a>
+        <a href="#quizSection"
+          class="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-amber-300 font-bold">
+          <span>🎯</span> छठ क्विज
+        </a>
+      </div>
+
+      <!-- Action Utilities: Sound, Theme, Temple Bell -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Temple Bell Sound Trigger -->
+        <button onclick="audio.playTempleBell()" title="मन्दिर की पावन घंटी बजाएं"
+          class="px-2.5 py-1.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500/30 hover:scale-105 transition-all text-xs font-semibold flex items-center gap-1.5">
+          <span>🔔</span>
+          <span class="hidden sm:inline">घंटी</span>
+        </button>
+
+        <!-- Shankh Trigger -->
+        <button onclick="audio.playShankh()" title="शंखनाद करें"
+          class="px-2.5 py-1.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500/30 hover:scale-105 transition-all text-xs font-semibold flex items-center gap-1.5">
+          <span>🐚</span>
+          <span class="hidden sm:inline">शंख</span>
+        </button>
+
+        <!-- Sound Toggle -->
+        <button id="soundToggleBtn" onclick="toggleSound()"
+          class="p-2 rounded-lg bg-stone-900/60 border border-stone-700/60 text-stone-300 hover:text-amber-300 text-xs font-code transition-colors">
+          🔔 <span class="hidden sm:inline">Sound: ON</span>
+        </button>
+
+        <!-- Theme Mode Toggle (Sandhya vs Usha Arghya) -->
+        <button id="themeToggleBtn" onclick="toggleThemeMode()"
+          class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-stone-950 font-bold text-xs shadow-md transition-all">
+          🌅 Sandhya Mode
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section: Virtual Ghat, Glowing Surya Dev, Animated River Waves & Diyas -->
+  <section id="hero"
+    class="relative pt-12 pb-32 overflow-hidden flex flex-col items-center justify-center min-h-[85vh]">
+
+    <!-- Shloka Banner -->
+    <div class="max-w-4xl mx-auto px-4 text-center z-10 mb-8">
+      <div id="heroThemeBadge"
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold mb-4 pulse-badge">
+        ✨ संध्या अर्घ्य - डूबते सूर्य को नमन
+      </div>
+
+      <h1
+        class="font-hindi text-4xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-300 to-orange-500 tracking-wide mb-3 drop-shadow-lg">
+        जय छठी मइया
+      </h1>
+
+      <p class="font-shloka text-lg sm:text-2xl text-amber-200/90 tracking-widest max-w-2xl mx-auto mb-3">
+        ॐ ह्रीं ह्रीं सूर्याय सहस्रकिरणाय मनोवांछित फलम् देहि देहि स्वाहा
+      </p>
+
+      <p class="text-xs sm:text-sm text-stone-400 max-w-xl mx-auto font-sans leading-relaxed">
+        लोक आस्था, असीम स्वच्छता, प्रकृति प्रेम और सूर्य देव की अगाध भक्ति का महापर्व।
+        <span class="text-amber-400 font-medium">Farji Engineer</span> द्वारा विशेष डिजिटल स्वरूप में प्रस्तुत।
+      </p>
+    </div>
+
+    <!-- Radiant Animated Surya Dev Display -->
+    <div class="relative z-10 my-4">
+      <div class="sun-container">
+        <!-- Sun Rays -->
+        <div class="sun-rays">
+          <div class="sun-ray-beam" style="transform: rotate(0deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(30deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(60deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(90deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(120deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(150deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(180deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(210deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(240deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(270deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(300deg)"></div>
+          <div class="sun-ray-beam" style="transform: rotate(330deg)"></div>
+        </div>
+
+        <!-- Halo Ring -->
+        <div class="sun-halo"></div>
+
+        <!-- Glowing Core -->
+        <div class="sun-core flex items-center justify-center">
+          <span class="text-4xl filter drop-shadow-md select-none">☀️</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Virtual Ghat Action Buttons & Arghya Simulator -->
+    <div id="virtualGhat" class="relative z-10 mt-6 flex flex-col items-center">
+
+      <!-- Holy Arghya Stream Element -->
+      <div id="arghyaStream" class="arghya-stream top-[340px]"></div>
+
+      <!-- Action Card -->
+      <div
+        class="glass-panel-glow p-5 sm:p-6 rounded-3xl max-w-lg mx-4 text-center border border-amber-400/40 shadow-2xl">
+
+        <div class="flex items-center justify-center gap-6 mb-4">
+          <!-- Brass Kalash (Animated) -->
+          <div id="brassKalash" class="transition-transform duration-500 origin-bottom-right">
+            <svg class="w-16 h-16 text-amber-400 filter drop-shadow-[0_4px_10px_rgba(245,158,11,0.6)]"
+              viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 14C22 11 26 8 32 8C38 8 42 11 42 14" stroke="#fbbf24" stroke-width="3"
+                stroke-linecap="round" />
+              <ellipse cx="32" cy="14" rx="14" ry="4" fill="#f59e0b" stroke="#fef08a" stroke-width="2" />
+              <!-- Kalash neck -->
+              <path
+                d="M20 14C20 18 24 22 26 25C22 29 14 36 14 45C14 53 22 56 32 56C42 56 50 53 50 45C50 36 42 29 38 25C40 22 44 18 44 14"
+                fill="url(#kalashGrad)" stroke="#fef08a" stroke-width="2" />
+              <!-- Holy Swastik on Kalash -->
+              <path d="M32 34V46M32 40H26V35M32 40H38V45" stroke="#7f1d1d" stroke-width="2.2" stroke-linecap="round" />
+              <circle cx="28" cy="37" r="1" fill="#7f1d1d" />
+              <circle cx="36" cy="37" r="1" fill="#7f1d1d" />
+              <circle cx="28" cy="43" r="1" fill="#7f1d1d" />
+              <circle cx="36" cy="43" r="1" fill="#7f1d1d" />
+              <!-- Mango Leaves on Kalash top -->
+              <path d="M32 10C28 4 22 5 24 12" fill="#22c55e" stroke="#15803d" stroke-width="1.5" />
+              <path d="M32 10C36 4 42 5 40 12" fill="#22c55e" stroke="#15803d" stroke-width="1.5" />
+              <path d="M32 10C32 2 34 2 32 10" stroke="#15803d" stroke-width="1.5" />
+              <!-- Coconut atop -->
+              <ellipse cx="32" cy="7" rx="6" ry="7" fill="#78350f" stroke="#b45309" stroke-width="1.5" />
+              <defs>
+                <linearGradient id="kalashGrad" x1="14" y1="14" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fef08a" />
+                  <stop offset="0.3" stop-color="#f59e0b" />
+                  <stop offset="0.7" stop-color="#d97706" />
+                  <stop offset="1" stop-color="#92400e" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Total Counter Stats -->
+          <div class="text-left">
+            <div class="text-xs font-code uppercase tracking-wider text-amber-300/80">समर्पित दिव्य अर्घ्य</div>
+            <div id="arghyaCounter"
+              class="text-3xl sm:text-4xl font-extrabold text-amber-300 font-code tracking-tight transition-all duration-300">
+              108
+            </div>
+            <div class="text-[11px] text-stone-400">श्रद्धापूर्वक गंगाजल व दुग्ध अर्पण</div>
+          </div>
+        </div>
+
+        <!-- Big CTA Button -->
+        <button onclick="triggerArghya()"
+          class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-bold text-base sm:text-lg shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group mb-3">
+          <span class="text-2xl group-hover:rotate-12 transition-transform">🪔</span>
+          <span>सूर्य देव को अर्घ्य दें (Offer Holy Arghya)</span>
+          <span class="text-xl">🌊</span>
+        </button>
+
+        <p class="text-[11px] text-amber-200/70 font-sans">
+          💡 टिप: नीचे बहती गंगा जी की लहरों पर कहीं भी क्लिक करके अपना दीप प्रवाहित करें!
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Sacred Ganges River Canvas with Floating Diyas -->
+    <canvas id="riverCanvas"></canvas>
+
+  </section>
+
+  <!-- Farji Engineer's Tech Quote Ticker -->
+  <div class="max-w-6xl mx-auto px-4 -mt-10 relative z-20 mb-20">
+    <div class="glass-panel p-4 rounded-2xl border border-amber-500/30 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="p-2 rounded-xl bg-amber-500/20 text-amber-300 text-lg">💡</span>
+        <div>
+          <div class="text-xs font-bold text-amber-300 uppercase tracking-wider font-code">Farji Engineer's Observation
+          </div>
+          <div class="text-sm text-stone-200 font-medium">
+            "छठ महापर्व में कोई वीआईपी पास नहीं होता; राजा और रंक दोनों एक ही गंगा घाट पर कमर भर पानी में खड़े होकर
+            सूर्यदेव की आराधना करते हैं। यही सनातन का सर्वोच्च समाजवाद है!"
+          </div>
+        </div>
+      </div>
+      <button onclick="shareWebsite()"
+        class="shrink-0 px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/30 text-xs font-bold flex items-center gap-1.5 transition-all">
+        <span>🔗</span> Share
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 1: The 4-Day Sacred Lifecycle (Engineered Protocol) -->
+  <section id="fourDays" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div
+        class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
+        4-Day Complete Protocol
+      </div>
+      <h2
+        class="font-hindi text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-400 mb-4">
+        चार दिवसीय महा अनुष्ठान
+      </h2>
+      <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+        शुद्धता, तपस्या और आत्मसंयम का 4 दिवसीय वैज्ञानिक व आध्यात्मिक जीवन चक्र।
+      </p>
+    </div>
+
+    <!-- 4 Day Grid Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Day 1: Nahay Khay -->
+      <div
+        class="glass-panel p-6 rounded-3xl border border-amber-500/20 tilt-card relative flex flex-col justify-between overflow-hidden group">
+        <div
+          class="absolute top-0 right-0 w-28 h-28 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span
+              class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-code font-bold text-amber-300 text-sm">
+              D-1
+            </span>
+            <span
+              class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-300">
+              शुद्धिकरण
+            </span>
+          </div>
+
+          <h3 class="font-hindi text-2xl font-bold text-amber-100 mb-2">नहाय-खाय</h3>
+          <div class="text-xs text-amber-400/90 font-medium mb-3">कार्तिक शुक्ल चतुर्थी</div>
+
+          <p class="text-stone-300 text-xs leading-relaxed mb-4">
+            पवित्र नदी या गंगाजल से स्नान कर संपूर्ण घर की सफाई। पीतल के बर्तनों में सेंधा नमक व घी से बना कद्दू-भात
+            (लौकी) और चने की दाल का सात्विक भोग।
+          </p>
+
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-500/20 text-xs text-amber-200 mb-4">
+            <div class="font-semibold text-amber-300 mb-1">🌿 सात्विक भोग:</div>
+            <div>कद्दू (Lauki), अरवा चावल, चना दाल, सेंधा नमक।</div>
+          </div>
+        </div>
+
+        <div class="border-t border-amber-500/20 pt-3 text-[11px] font-code text-stone-400">
+          <span class="text-amber-400 font-bold">Farji Tech:</span> Complete Cache Flush & System State Reset!
+        </div>
+      </div>
+
+      <!-- Day 2: Kharna -->
+      <div
+        class="glass-panel p-6 rounded-3xl border border-amber-500/20 tilt-card relative flex flex-col justify-between overflow-hidden group">
+        <div
+          class="absolute top-0 right-0 w-28 h-28 bg-orange-500/10 rounded-full blur-2xl group-hover:bg-orange-500/20 transition-all">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span
+              class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center font-code font-bold text-orange-300 text-sm">
+              D-2
+            </span>
+            <span
+              class="text-xs font-bold px-2.5 py-1 rounded-full bg-orange-950/70 border border-orange-500/30 text-orange-300">
+              तपस्या प्रारंभ
+            </span>
+          </div>
+
+          <h3 class="font-hindi text-2xl font-bold text-amber-100 mb-2">खरना (लोहंडा)</h3>
+          <div class="text-xs text-amber-400/90 font-medium mb-3">कार्तिक शुक्ल पंचमी</div>
+
+          <p class="text-stone-300 text-xs leading-relaxed mb-4">
+            दिन भर का निर्जला उपवास। शाम को मिट्टी के चूल्हे पर आम की लकड़ी से बनी गुड़ की खीर (रसियाव) और घी की रोटी का
+            भोग। इसके बाद 36 घंटे का अखंड निर्जला व्रत प्रारंभ।
+          </p>
+
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-500/20 text-xs text-amber-200 mb-4">
+            <div class="font-semibold text-amber-300 mb-1">🍯 पावन प्रसाद:</div>
+            <div>रसियाव (गुड़ की खीर), दोहरी घी रोटी, केला।</div>
+          </div>
+        </div>
+
+        <div class="border-t border-amber-500/20 pt-3 text-[11px] font-code text-stone-400">
+          <span class="text-amber-400 font-bold">Farji Tech:</span> Deep Hibernation & Zero Interrupt Mode!
+        </div>
+      </div>
+
+      <!-- Day 3: Sandhya Arghya -->
+      <div
+        class="glass-panel p-6 rounded-3xl border border-amber-500/20 tilt-card relative flex flex-col justify-between overflow-hidden group">
+        <div
+          class="absolute top-0 right-0 w-28 h-28 bg-rose-500/10 rounded-full blur-2xl group-hover:bg-rose-500/20 transition-all">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span
+              class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center font-code font-bold text-rose-300 text-sm">
+              D-3
+            </span>
+            <span
+              class="text-xs font-bold px-2.5 py-1 rounded-full bg-rose-950/70 border border-rose-500/30 text-rose-300">
+              पहला अर्घ्य
+            </span>
+          </div>
+
+          <h3 class="font-hindi text-2xl font-bold text-amber-100 mb-2">संध्या अर्घ्य</h3>
+          <div class="text-xs text-amber-400/90 font-medium mb-3">कार्तिक शुक्ल षष्ठी (छठ)</div>
+
+          <p class="text-stone-300 text-xs leading-relaxed mb-4">
+            दउरा सिर पर लेकर घाट प्रस्थान। अस्ताचलगामी (डूबते हुए) सूर्यदेव को दूध और जल से पहला अर्घ्य समर्पण। रात में
+            गन्ने के मंडप में 24-36 दीपों से 'कोसी' भराई।
+          </p>
+
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-500/20 text-xs text-amber-200 mb-4">
+            <div class="font-semibold text-amber-300 mb-1">🌅 मुख्य अनुष्ठान:</div>
+            <div>अस्तगामी सूर्य को अर्घ्य, दउरा शोभायात्रा, कोसी जागरण।</div>
+          </div>
+        </div>
+
+        <div class="border-t border-amber-500/20 pt-3 text-[11px] font-code text-stone-400">
+          <span class="text-amber-400 font-bold">Farji Tech:</span> Reverse Entropy: Honoring past inputs before future
+          outputs!
+        </div>
+      </div>
+
+      <!-- Day 4: Usha Arghya & Paran -->
+      <div
+        class="glass-panel p-6 rounded-3xl border border-amber-500/20 tilt-card relative flex flex-col justify-between overflow-hidden group">
+        <div
+          class="absolute top-0 right-0 w-28 h-28 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-all">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span
+              class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center font-code font-bold text-yellow-300 text-sm">
+              D-4
+            </span>
+            <span
+              class="text-xs font-bold px-2.5 py-1 rounded-full bg-yellow-950/70 border border-yellow-500/30 text-yellow-300">
+              पारण व पूर्णता
+            </span>
+          </div>
+
+          <h3 class="font-hindi text-2xl font-bold text-amber-100 mb-2">उषा अर्घ्य व पारण</h3>
+          <div class="text-xs text-amber-400/90 font-medium mb-3">कार्तिक शुक्ल सप्तमी</div>
+
+          <p class="text-stone-300 text-xs leading-relaxed mb-4">
+            भोर के समय उदित होते बाल सूर्य को अंतिम अर्घ्य अर्पण। छठी मइया से संतानों व परिवार की समृद्धि की प्रार्थना।
+            व्रती कच्चा दूध, अदरक व ठेकुआ खाकर 36 घंटे का व्रत खोलते हैं।
+          </p>
+
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-500/20 text-xs text-amber-200 mb-4">
+            <div class="font-semibold text-amber-300 mb-1">🌄 पावन समापन:</div>
+            <div>उषा अर्घ्य, व्रतियों का आशीर्वाद, महाप्रसाद वितरण।</div>
+          </div>
+        </div>
+
+        <div class="border-t border-amber-500/20 pt-3 text-[11px] font-code text-stone-400">
+          <span class="text-amber-400 font-bold">Farji Tech:</span> System Re-initialization with Peak Solar Charging!
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Chhath Soop & Samagri Explorer -->
+  <section id="soopSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div
+        class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
+        Interactive Samagri Inspector
+      </div>
+      <h2
+        class="font-hindi text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-400 mb-4">
+        पावन सूप और दउरा की सामग्री
+      </h2>
+      <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+        बांस के सूप में रखी हर एक सामग्री प्रकृति, आयुर्वेद और कृतज्ञता का प्रतीक है। किसी भी सामग्री पर क्लिक करके उसका
+        विस्तृत वैज्ञानिक व आध्यात्मिक महत्व जानें।
+      </p>
+    </div>
+
+    <!-- Samagri Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Thekua Card -->
+      <div onclick="openSoopModal('thekua')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🍪</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">ठेकुआ (Thekua)</h3>
+        <p class="text-xs text-stone-400 mb-3">गेहूं, शुद्ध घी, गुड़ व सौंफ का महाप्रसाद</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          छठ का सबसे पावन और लोकप्रिय प्रसाद। लकड़ी के सांचे पर हस्तनिर्मित छाप और शुद्ध घी में तली दिव्यता।
+        </p>
+      </div>
+
+      <!-- Sugarcane Card -->
+      <div onclick="openSoopModal('sugarcane')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🎋</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">ईख / गन्ना (Sugarcane)</h3>
+        <p class="text-xs text-stone-400 mb-3">समृद्धि व कोसी मंडप का आधार</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          पत्तेदार संपूर्ण गन्ना सूर्यदेव को नई फसल के समर्पण और छठ घाट पर पावन कोसी छत्र के निर्माण के लिए प्रयुक्त
+          होता है।
+        </p>
+      </div>
+
+      <!-- Coconut Card -->
+      <div onclick="openSoopModal('coconut')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🥥</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">श्रीफल / नारियल (Coconut)</h3>
+        <p class="text-xs text-stone-400 mb-3">अहंकार विसर्जन व निर्मल अंतःकरण</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          कठोर आवरण के भीतर अमृततुल्य जल। सूप में अर्घ्य देते समय सबसे आगे रखा जाने वाला पवित्र फल।
+        </p>
+      </div>
+
+      <!-- Pomelo Card -->
+      <div onclick="openSoopModal('pomelo')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🍋</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">डाभ / गागर नींबू (Pomelo)</h3>
+        <p class="text-xs text-stone-400 mb-3">आयुर्वेदिक स्वास्थ्य रक्षक व रोगाणुरोधी</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          विटामिन-सी से भरपूर बड़ा नींबू जो बदलते मौसम में शरीर को रोगमुक्त रखने का दिव्य प्राकृतिक उपहार है।
+        </p>
+      </div>
+
+      <!-- Kasar Card -->
+      <div onclick="openSoopModal('kasar')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🧆</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">कसार (Kasar Laddus)</h3>
+        <p class="text-xs text-stone-400 mb-3">धान के चावल व गुड़ के पारंपरिक लड्डू</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          नए धान के कुटे हुए चावल में गुड़ की चाशनी और घी मिलाकर बनाए गए पावन लड्डू जो पारण पर तुरंत ऊर्जा देते हैं।
+        </p>
+      </div>
+
+      <!-- Haldi & Adrak Card -->
+      <div onclick="openSoopModal('haldi')"
+        class="glass-panel p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 cursor-pointer tilt-card group transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-4xl group-hover:scale-110 transition-transform">🌿</div>
+          <span class="text-xs font-code px-2 py-1 rounded bg-amber-500/20 text-amber-300">Click to Inspect</span>
+        </div>
+        <h3 class="text-xl font-bold text-amber-200 mb-1 group-hover:text-amber-300">हरी हल्दी व अदरक (Turmeric)</h3>
+        <p class="text-xs text-stone-400 mb-3">आरोग्य, एंटीबायोटिक व प्रकृति सम्मान</p>
+        <p class="text-xs text-stone-300 leading-relaxed line-clamp-3">
+          हरे पत्तों सहित कच्ची हल्दी और अदरक जो सूप की पवित्रता और आरोग्य के आशीर्वाद को दर्शाती है।
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Farji Engineer's Thekua & Prasad Calculator -->
+  <section id="calculatorSection" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="glass-panel-glow p-8 sm:p-10 rounded-3xl border border-amber-400/40 relative overflow-hidden">
+
+      <!-- Header -->
+      <div class="max-w-2xl mb-8">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold font-code mb-2">
+          <span>🛠️</span> FARJI ENGINEER ALGORITHM V3.8
+        </div>
+        <h2 class="font-hindi text-3xl sm:text-4xl font-bold text-amber-100 mb-2">
+          ठेकुआ और महाप्रसाद कैलकुलेटर
+        </h2>
+        <p class="text-stone-300 text-xs sm:text-sm">
+          "Bhai ghar se Thekua laana!" - रिश्तेदारों, कॉलेज हॉस्टल और ऑफिस के दोस्तों की भूख के अनुसार सटीक सामग्री व
+          डिब्बों का अनुमान लगाएं!
+        </p>
+      </div>
+
+      <!-- Inputs Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+        <div>
+          <label class="block text-xs font-bold text-amber-300 mb-1.5 font-code">
+            👥 घर आने वाले रिश्तेदार
+          </label>
+          <input type="number" id="inputRelatives" value="12" min="1" max="100"
+            class="w-full bg-stone-900/80 border border-amber-500/30 rounded-xl px-4 py-2.5 text-amber-100 font-code focus:outline-none focus:border-amber-400 transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-amber-300 mb-1.5 font-code">
+            🎒 हॉस्टल / कॉलेज गैंग
+          </label>
+          <input type="number" id="inputHostel" value="8" min="0" max="100"
+            class="w-full bg-stone-900/80 border border-amber-500/30 rounded-xl px-4 py-2.5 text-amber-100 font-code focus:outline-none focus:border-amber-400 transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-amber-300 mb-1.5 font-code">
+            💼 ऑफिस के साथी ("Bhai Thekua")
+          </label>
+          <input type="number" id="inputOffice" value="15" min="0" max="100"
+            class="w-full bg-stone-900/80 border border-amber-500/30 rounded-xl px-4 py-2.5 text-amber-100 font-code focus:outline-none focus:border-amber-400 transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-amber-300 mb-1.5 font-code">
+            ⚡ क्रेविंग मल्टीप्लायर
+          </label>
+          <select id="selectCraving"
+            class="w-full bg-stone-900/80 border border-amber-500/30 rounded-xl px-4 py-2.5 text-amber-100 font-code focus:outline-none focus:border-amber-400 transition-colors">
+            <option value="1.0">सामान्य (1x)</option>
+            <option value="1.5" selected>तगड़ा प्रेमी (1.5x - Recommended)</option>
+            <option value="2.2">प्रो मैक्स बिहारी (2.2x - Unlimited)</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Action Button -->
+      <div class="mb-8">
+        <button onclick="calculateThekua()"
+          class="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-bold text-base shadow-xl shadow-orange-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+          <span>⚙️</span>
+          <span>कैलकुलेट करें (Run Farji Engine)</span>
+        </button>
+      </div>
+
+      <!-- Results Display (Hidden by default, shown on click) -->
+      <div id="thekuaResults"
+        class="hidden bg-amber-950/40 border border-amber-500/30 rounded-2xl p-6 transition-all duration-500">
+        <h4 class="text-sm font-bold uppercase tracking-wider text-amber-300 font-code mb-4 flex items-center gap-2">
+          <span>📊</span> FARJI ENGINE OUTPUT SPECIFICATIONS
+        </h4>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+          <div class="bg-stone-900/60 p-3.5 rounded-xl border border-amber-500/20">
+            <div class="text-[11px] text-stone-400 font-code">कुल ठेकुआ</div>
+            <div id="resultThekuaCount" class="text-xl sm:text-2xl font-extrabold text-amber-300 font-code">--</div>
+          </div>
+          <div class="bg-stone-900/60 p-3.5 rounded-xl border border-amber-500/20">
+            <div class="text-[11px] text-stone-400 font-code">गेहूं का आटा</div>
+            <div id="resultAtta" class="text-xl sm:text-2xl font-extrabold text-amber-300 font-code">--</div>
+          </div>
+          <div class="bg-stone-900/60 p-3.5 rounded-xl border border-amber-500/20">
+            <div class="text-[11px] text-stone-400 font-code">शुद्ध देसी घी</div>
+            <div id="resultGhee" class="text-xl sm:text-2xl font-extrabold text-amber-300 font-code">--</div>
+          </div>
+          <div class="bg-stone-900/60 p-3.5 rounded-xl border border-amber-500/20">
+            <div class="text-[11px] text-stone-400 font-code">देसी गुड़</div>
+            <div id="resultGur" class="text-xl sm:text-2xl font-extrabold text-amber-300 font-code">--</div>
+          </div>
+          <div class="bg-stone-900/60 p-3.5 rounded-xl border border-amber-500/20 col-span-2 sm:col-span-1">
+            <div class="text-[11px] text-stone-400 font-code">डिब्बे (Air-tight)</div>
+            <div id="resultBoxes" class="text-xl sm:text-2xl font-extrabold text-amber-300 font-code">--</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-start gap-3">
+          <span class="text-2xl">⚠️</span>
+          <div>
+            <div class="text-xs font-bold text-amber-300 uppercase tracking-wider font-code">Farji Engineer Security
+              Advisory</div>
+            <div id="resultEngineeringTip" class="text-stone-200 text-xs sm:text-sm mt-1 leading-relaxed">
+              --
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: The Grand Chhath Mahaparv Quiz -->
+  <section id="quizSection" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div
+        class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
+        Interactive Knowledge Challenge
+      </div>
+      <h2
+        class="font-hindi text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-400 mb-3">
+        छठ महापर्व क्विज
+      </h2>
+      <p class="text-stone-300 text-sm">
+        छठ के इतिहास, परंपरा, वैज्ञानिक महत्व और लोक आस्था पर आधारित 10 पावन प्रश्न। सही उत्तर दें और पाएं Farji
+        Engineer द्वारा प्रमाणित सम्मान पत्र!
+      </p>
+    </div>
+
+    <!-- Quiz Box Container -->
+    <div class="glass-panel-glow p-6 sm:p-10 rounded-3xl border border-amber-400/40 shadow-2xl relative">
+
+      <!-- Dynamic Quiz Question Card -->
+      <div id="quizContainer">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Quiz Results Screen (Hidden initially) -->
+      <div id="quizResults" class="hidden text-center py-6">
+        <div class="text-6xl mb-4">🏆</div>
+        <h3 class="text-3xl font-bold font-hindi text-amber-100 mb-2">क्विज संपन्न!</h3>
+        <div class="text-sm text-stone-300 mb-4">आपका अंतिम प्राप्तांक:</div>
+
+        <div id="finalScoreText" class="text-5xl sm:text-6xl font-extrabold text-amber-400 font-code mb-4">
+          10 / 10
+        </div>
+
+        <div class="mb-4">
+          <span id="finalBadge"
+            class="inline-block px-4 py-1.5 rounded-full font-bold text-sm bg-gradient-to-r from-amber-400 to-yellow-500 text-stone-950 shadow-md">
+            Param Chhath Engineer
+          </span>
+        </div>
+
+        <p id="finalMessage" class="text-stone-300 text-sm max-w-md mx-auto mb-8 leading-relaxed">
+          अद्भूत ज्ञान! आपकी भक्ति और परंपरा के प्रति निष्ठा प्रेरणादायी है।
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onclick="openCertificateModal()"
+            class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 font-bold text-sm shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
+            <span>📜</span> अपना सर्टिफिकेट प्राप्त करें
+          </button>
+
+          <button onclick="initQuiz()"
+            class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-stone-900 border border-amber-500/30 hover:border-amber-400 text-amber-200 font-bold text-sm flex items-center justify-center gap-2">
+            <span>🔄</span> क्विज पुनः खेलें
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Devotional Melodies & Traditions of Sharda Sinha -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-amber-500/30 relative overflow-hidden">
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold mb-3">
+            <span>🕊️</span> अमर स्वर कोकिला को भावपूर्ण नमन
+          </div>
+          <h3 class="font-hindi text-2xl sm:text-3xl font-bold text-amber-100 mb-3">
+            स्वर कोकिला शारदा सिन्हा जी के पावन गीत
+          </h3>
+          <p class="text-stone-300 text-sm leading-relaxed mb-4">
+            छठ महापर्व का उल्लेख आते ही पद्म भूषण स्व. शारदा सिन्हा जी की दिव्य वाणी हर घर, हर घाट और हर हृदय में गूंज
+            उठती है। "कांच ही बांस के बहंगिया", "केलवा के पात पर उगेलन सुरुज देव", "पहिले पहिल हम कईनी छठी मइया व्रत
+            तोहार" - ये केवल गीत नहीं, हमारी आत्मा का क्रंदन और समर्पण हैं।
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="audio.playTempleBell(); showToast('🎶 केलवा के पात पर उगेलन सुरुज देव... जय छठी मइया!');"
+              class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-2 transition-all">
+              <span>🎵</span> केलवा के पात पर
+            </button>
+            <button onclick="audio.playShankh(); showToast('🎶 कांच ही बांस के बहंगिया, बहंगी लचकत जाए...');"
+              class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-2 transition-all">
+              <span>🎵</span> कांच ही बांस के बहंगिया
+            </button>
+            <button onclick="audio.playWaterStream(); showToast('🎶 पहिले पहिल हम कईनी, छठी मइया व्रत तोहार...');"
+              class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-2 transition-all">
+              <span>🎵</span> पहिले पहिल हम कईनी
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-panel-glow p-6 rounded-2xl border border-amber-400/30 text-center">
+          <div class="text-4xl mb-2">🙏</div>
+          <div class="font-hindi text-xl font-bold text-amber-200 mb-1">अखंड सुरमयी विरासत</div>
+          <p class="text-xs text-stone-400 leading-relaxed">
+            "जब तक सूर्य-चंद्रमा रहेंगे, तब तक छठ घाटों पर शारदा दीदी के सुरों की पावन गूंज अमर रहेगी।"
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal 1: Soop Samagri Detail Dialog -->
+  <div id="soopModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div
+      class="glass-panel-glow max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 shadow-2xl relative animate-scaleUp">
+      <button onclick="closeSoopModal()"
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-stone-900/80 border border-amber-500/30 text-amber-300 hover:text-white flex items-center justify-center text-sm font-bold transition-colors">
+        ✕
+      </button>
+
+      <div class="mb-4">
+        <span class="text-xs font-code text-amber-400 uppercase tracking-widest font-bold">SAMAGRI SPECIFICATION</span>
+        <h3 id="soopModalTitle" class="text-2xl font-bold font-hindi text-amber-100 mt-1">--</h3>
+        <p id="soopModalSubtitle" class="text-xs text-amber-300/80 mt-0.5">--</p>
+      </div>
+
+      <p id="soopModalDesc" class="text-stone-300 text-sm leading-relaxed mb-6">--</p>
+
+      <div id="soopModalSpecs" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <!-- Injected via app.js -->
+      </div>
+
+      <button onclick="closeSoopModal()"
+        class="w-full py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-200 text-sm font-bold transition-all">
+        बंद करें (Close)
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal 2: Certificate of Honor Modal -->
+  <div id="certModal"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop overflow-y-auto">
+    <div
+      class="glass-panel-glow max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 shadow-2xl relative my-8">
+      <button onclick="closeCertificateModal()"
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-stone-900/80 border border-amber-500/30 text-amber-300 hover:text-white flex items-center justify-center text-sm font-bold transition-colors">
+        ✕
+      </button>
+
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-bold font-hindi text-amber-100">छठ महापर्व सम्मान पत्र</h3>
+        <p class="text-xs text-stone-400">अपना नाम दर्ज करें और आधिकारिक डिजिटल प्रमाण-पत्र प्राप्त करें</p>
+      </div>
+
+      <!-- Name Input -->
+      <div class="max-w-md mx-auto mb-6 flex gap-2">
+        <input type="text" id="certUserName" placeholder="अपना शुभ नाम लिखें..."
+          class="flex-1 bg-stone-900/80 border border-amber-500/30 rounded-xl px-4 py-2.5 text-amber-100 text-sm focus:outline-none focus:border-amber-400">
+        <button onclick="updateCertificatePreview()"
+          class="px-5 py-2.5 rounded-xl bg-amber-500 text-stone-950 font-bold text-xs hover:bg-amber-400 transition-colors">
+          Update
+        </button>
+      </div>
+
+      <!-- Printable Certificate Area -->
+      <div id="printableCertificateArea" class="certificate-frame p-8 rounded-2xl text-center mb-6 relative">
+        <div class="text-3xl mb-1">☀️ 🪔 ☀️</div>
+
+        <div class="text-xs uppercase tracking-widest font-cinzel font-bold text-amber-900 mb-1">
+          OFFICIAL DEVOTIONAL CREDENTIAL
+        </div>
+
+        <h4 class="font-hindi text-2xl sm:text-3xl font-extrabold text-amber-950 mb-2">
+          छठ महापर्व ज्ञान सम्मान
+        </h4>
+
+        <p class="text-xs text-amber-900/80 italic mb-4">
+          यह प्रमाण-पत्र अत्यंत गौरव के साथ प्रदान किया जाता है
+        </p>
+
+        <div id="renderedCertName"
+          class="text-2xl sm:text-3xl font-bold font-hindi text-red-900 border-b-2 border-amber-600/50 pb-1 max-w-sm mx-auto mb-3">
+          परम छठ भक्त
+        </div>
+
+        <p class="text-xs text-amber-950 max-w-md mx-auto leading-relaxed mb-4">
+          जिन्होंने छठ महापर्व की पावन परंपरा, सूर्योपासना के वैज्ञानिक दृष्टिकोण और सांस्कृतिक शुचिता की परीक्षा में
+          उत्कृष्ट ज्ञान का परिचय दिया है।
+        </p>
+
+        <div
+          class="inline-block px-4 py-1 rounded-full bg-amber-200 border border-amber-600 text-amber-900 font-bold text-xs font-code mb-6"
+          id="renderedCertTitle">
+          Certified Thekua Engineer
+        </div>
+
+        <div
+          class="flex items-center justify-between text-[11px] text-amber-900/90 font-code border-t border-amber-800/30 pt-3">
+          <div id="renderedCertDate">प्रमाणित दिनांक: कार्तिक शुक्ल</div>
+          <div class="text-right">
+            <div class="font-bold">Farji Engineer</div>
+            <div class="text-[9px] text-amber-800">Founder & Chief Devotional Architect</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-3">
+        <button onclick="closeCertificateModal()"
+          class="px-5 py-2.5 rounded-xl bg-stone-900 border border-amber-500/30 text-amber-200 text-xs font-bold hover:bg-stone-800">
+          Cancel
+        </button>
+        <button onclick="printCertificate()"
+          class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-stone-950 text-xs font-bold hover:from-amber-400 hover:to-orange-400 flex items-center gap-2 shadow-lg">
+          <span>🖨️</span> Print / Save Certificate
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer with Farji Engineer Signature -->
+  <footer class="border-t border-amber-500/20 bg-stone-950/80 backdrop-blur-md pt-12 pb-8 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-stone-800">
+
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-2xl">☀️</span>
+            <span class="font-hindi text-xl font-bold text-amber-300">छठ महापर्व</span>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed mb-3">
+            प्रकृति, स्वच्छता, सूर्य और छठी मइया की उपासना का महापर्व। शून्य अंधविश्वास, 100% सादगी और पर्यावरण संरक्षण।
+          </p>
+          <div class="text-[11px] font-code text-amber-400">
+            Engineered with ❤️ & Jugaad by Farji Engineer
+          </div>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-amber-300 uppercase tracking-widest font-code mb-3">त्वरित नेविगेशन</h5>
+          <ul class="space-y-2 text-xs text-stone-400">
+            <li><a href="#virtualGhat" class="hover:text-amber-300 transition-colors">→ वर्चुअल घाट व सूर्य अर्घ्य</a>
+            </li>
+            <li><a href="#fourDays" class="hover:text-amber-300 transition-colors">→ नहाय-खाय से उषा अर्घ्य तक</a></li>
+            <li><a href="#soopSection" class="hover:text-amber-300 transition-colors">→ सूप व दउरा सामग्री विवरण</a>
+            </li>
+            <li><a href="#calculatorSection" class="hover:text-amber-300 transition-colors">→ ठेकुआ व प्रसाद
+                कैलकुलेटर</a></li>
+            <li><a href="#quizSection" class="hover:text-amber-300 transition-colors">→ छठ महापर्व क्विज व सम्मान
+                पत्र</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-amber-300 uppercase tracking-widest font-code mb-3">Farji Engineer Specs
+          </h5>
+          <div
+            class="bg-stone-900/60 p-4 rounded-2xl border border-stone-800 text-xs font-code space-y-1.5 text-stone-300">
+            <div>⚙️ System: ChhathOS v4.0</div>
+            <div>🪔 Fuel: 100% Desi Ghee & Faith</div>
+            <div>🚀 Uptime: Millennia & Infinite</div>
+            <div>🐛 Bugs: 0 (Tested in Holy Ganga)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <div>
+          © 2026 छठ महापर्व | Dedicated to all Vratis, Families & Chhath Bhakts across the Globe.
+        </div>
+        <div class="flex items-center gap-4 text-amber-400/80">
+          <button onclick="audio.playTempleBell()" class="hover:text-amber-300">🔔 Mandir Ghanti</button>
+          <span>•</span>
+          <button onclick="audio.playShankh()" class="hover:text-amber-300">🐚 Shankh Naad</button>
+          <span>•</span>
+          <button onclick="shareWebsite()" class="hover:text-amber-300">🔗 Share Link</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+
+</html>
